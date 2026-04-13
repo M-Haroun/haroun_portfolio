@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block title %}success{% endblock %}
+{% block content %}
+<h1>Thank You!</h1>
+<p>Your message has been sent successfully. We will get back to you soon.</p>
+<a href="{% url 'contact:contact' %}" class='btn btn-secondary m-2'>Back to contact form</a>
+{% endblock %}

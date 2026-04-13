@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% load static %}
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'dist/css/main_about.css' %}" type = "text/css">
+{% endblock %}
+
+{% block content %}
+    <div class='row'>
+      <div class='col-md-3'>
+        <div class='card card-body h-100 border-info' id='profil-wrapper'>
+          <img src="{% static 'dist/img/Mahmoud.png' %}" id='profil-pic'>
+          <hr>
+          <h4>Hi I am Mahmoud</h4>
+          <p>I love programming, doing research and collaborating</p>
+        </div>
+      </div>
+      <div class='col-md-9'>
+        <div class='card card-body h-100 border-info'>
+          <h4>About me:</h4>
+          <hr>
+          <p>
+            As an educator, I am passionate about inspiring and guiding students to achieve their full potential. 
+            I strive to create a positive learning environment that fosters creativity, 
+            critical thinking, and problem-solving skills. 
+          </p>
+          <p>
+            In addition to my teaching and research activities, I am also involved 
+            in community service projects. I believe that giving back to society 
+            is an essential part of being a responsible citizen. 
+            Through my volunteer work, I have had the opportunity to make 
+            a positive impact on the lives of others and contribute to the development 
+            of my community.
+          </p>
+          <p>
+            Overall, my diverse experiences as an assistant lecturer, software engineer, 
+            researcher, and community volunteer have shaped me into a well-rounded individual 
+            who is committed to making a difference in the world.
+          </p>
+        </div>
+      </div>
+    </div>    
+    <br>
+    <div class='row'>
+      <div class='col-md-6'>
+        <div class='card card-body h-100'>
+          <h4>My goal:</h4>
+          <hr>
+          <p>My goal is to equip my students with the knowledge and skills they need to succeed in their future careers.</p>
+        </div>
+      </div>
+      <div class='col-md-6'>
+        <div class='card card-body h-100'>
+          <h4>Technical Skills</h4>
+          <hr>
+          <p>
+            Python, Django, Rust API, HTML, CSS, JavaScript, C/C++, Bash Shell Scripting, FORTRAN, Matlab and OOP.
+            I used these Libraries and Tools: NumPy, SciPy, Pandas, Matplotlib, pyTest, MySQL, Vmware and Git/GitHub.
+            Also worked on different hardwares as Arduino,ESP32 and Raspberry Pi.
+          </p>
+          <p>
+            Operating Systems: Linux and Windows.
+          </p>
+        </div>
+      </div>
+    </div>
+    <br><!--
+    <div class='row'>
+      <div class='col-md-6'>
+        <div class='card card-body h-100'></div>
+      </div>
+      <div class='col-md-6'>
+        <div class='card card-body h-100'></div>
+      </div>
+    </div>
+    <br>-->
+
+{%endblock%}

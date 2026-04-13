@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{%block title%}
+{{ object.title }}
+{% endblock %}
+
+{% block content %}
+<div class='card-header d-flex justify-content-between align-items-center'>
+  <h2 class='card-title m-0'>
+    {{ object.title }}
+  </h2>
+  {% if user.is_staff %}
+    <div>
+      <a href="{% url 'blog:edit' object.slug %}" class="btn btn-primary">Edit</a>
+      <a href="{% url 'blog:delete' object.slug %}" class="btn btn-danger">Delete</a>
+    </div>
+  {% endif %}
+</div>
+<div class="col-11 m-1">
+        {% if object.image %}
+        <img class='m-3'
+          src="{{ object.image.url }}"
+          alt="{{ object.title }}"
+          width="950"
+          height="350"
+        />
+        {% endif %}
+        <p class='card-body'>{{ object.content }}</p>
+
+      </div>
+<!-- <small>created at: {{ object.created_at }}</small>-->
+<br><small>Last updated: {{object.last_updated}}</small>
+
+<hr>
+<h2>Comments</h2>
+
+{% for comment in comments %}
+  <p><strong>{{ comment.user.username }}</strong>: {{ comment.content }}</p>
+{% empty %}
+  <p>No comments yet.</p>
+{% endfor %}
+
+<hr>
+{% if user.is_authenticated %}
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary m-2">Add Comment</button>
+  </form>
+{% else %}
+  <p><a href="{% url 'login' %}" class="btn btn-primary m-2">Login</a> to add a comment.</p>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends "base.html" %} 
+{% block title %} 
+  {% if object %} 
+    Edit: {{object.title }} 
+  {% else %} 
+    Add Project 
+  {% endif %} 
+{% endblock %} 
+{% block content %}
+
+  <!-- Content Header (Page header) -->
+  <div class="card">
+    <div class="card-header">
+      <h2 class="card-title">
+        {% if object %} 
+          Edit: {{ object.title }} 
+        {% else %} 
+          Add Project 
+        {% endif%}
+      </h2>
+    </div>
+
+    <form method="post">
+      {% csrf_token %}
+      <div class="card-body">
+        {% for field in form %}
+        <div class="form-group">
+          {{ field.label_tag }} 
+          {{ field }} 
+          {% if field.errors %}
+          <div class="text-danger">{{ field.errors }}</div>
+          {% endif %}
+        </div>
+        {% endfor %}
+      </div>
+
+        <!-- Content Footer (Page footer) -->
+      <div class="col-12">
+        <div class="card-footer">
+          <button type="submit" class="btn btn-success m-2">
+            {% if object %} 
+              Update 
+            {% else %} 
+              Create 
+            {% endif %}
+          </button>
+          <a href="{% url 'portfolio:list' %}" class="btn btn-secondary m-2">
+            Back to projects</a>
+        </div>
+      </div>
+    </form>
+  </div>
+
+{% endblock %}
